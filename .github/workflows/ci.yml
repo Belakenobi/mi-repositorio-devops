@@ -1,0 +1,20 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v3
+
+      - name: Construir Docker
+        # Usamos ./app porque ahí está el Dockerfile
+        run: docker build -t mi-proyecto-flask ./app 
+
+      - name: Ejecutar contenedor
+        run: docker run -d -p 5000:5000 mi-proyecto-flask
