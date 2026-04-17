@@ -1,0 +1,11 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+  build:
+    commands:
+      - echo "Construyendo imagen..."
+  post_build:
+    commands:
+      - echo "Construccion finalizada con exito"
